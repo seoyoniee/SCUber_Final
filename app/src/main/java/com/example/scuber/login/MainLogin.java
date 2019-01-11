@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,8 @@ import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
 public class MainLogin extends AppCompatActivity {
+
+    private static final String TAG = "MainLogin";
 
     TextView txt_create_account;
     MaterialEditText edt_login_id, edt_login_password;
@@ -152,10 +155,16 @@ public class MainLogin extends AppCompatActivity {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
-                        Toast.makeText(MainLogin.this, ""+response, Toast.LENGTH_SHORT).show();
+                        if(response.equals("\"Login success\"")) {
 
-                        Intent profileIntent = new Intent(MainLogin.this, MainActivity.class);
-                        startActivity(profileIntent);
+                            Intent intent = new Intent(MainLogin.this, MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(MainLogin.this, "" + response, Toast.LENGTH_SHORT).show();
+
+                        }
+                        else {
+                            Toast.makeText(MainLogin.this, "" + response, Toast.LENGTH_SHORT).show();
+                        }
 
                     }
                 }));
