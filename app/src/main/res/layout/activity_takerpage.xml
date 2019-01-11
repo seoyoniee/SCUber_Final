@@ -36,7 +36,7 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:background="@android:drawable/bottom_bar"
@@ -44,7 +44,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/tvPoint"
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:background="@android:drawable/bottom_bar"
@@ -52,7 +52,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvNoShow"
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:background="@android:drawable/bottom_bar"

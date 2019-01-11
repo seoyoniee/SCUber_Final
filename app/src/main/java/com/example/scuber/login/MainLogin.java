@@ -155,15 +155,16 @@ public class MainLogin extends AppCompatActivity {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
-                        if(response.equals("\"Login success\"")) {
+                        if(response.equals("\"Wrong password\"")) {
 
-                            Intent intent = new Intent(MainLogin.this, MainActivity.class);
-                            startActivity(intent);
                             Toast.makeText(MainLogin.this, "" + response, Toast.LENGTH_SHORT).show();
 
                         }
                         else {
-                            Toast.makeText(MainLogin.this, "" + response, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainLogin.this, MainActivity.class);
+                            intent.putExtra("id",response);
+                            startActivity(intent);
+                            Toast.makeText(MainLogin.this, "Login Success", Toast.LENGTH_SHORT).show();
                         }
 
                     }

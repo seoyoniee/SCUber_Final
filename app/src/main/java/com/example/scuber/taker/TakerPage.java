@@ -12,6 +12,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import com.example.scuber.ChargePoint;
 import com.example.scuber.R;
@@ -20,6 +21,10 @@ import java.util.ArrayList;
 
 public class TakerPage extends Activity {
 
+    private TextView tvName;
+    private TextView tvPoint;
+    private TextView tvNoShow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,12 @@ public class TakerPage extends Activity {
 
         final ArrayAdapter<Object> listAdapter = new ArrayAdapter<>(this, R.layout.activity_takerpage);
         final ListView taker_history = findViewById(R.id.taker_history);
+
+        tvName = (TextView)findViewById(R.id.tvName);
+        tvPoint = (TextView)findViewById(R.id.tvPoint);
+        tvNoShow = (TextView)findViewById(R.id.tvNoShow);
+
+        //해당 아이디에 대한 정보를 가져와서 json 파싱해서 보여줘
 
 
         taker_history.setAdapter(listAdapter);
