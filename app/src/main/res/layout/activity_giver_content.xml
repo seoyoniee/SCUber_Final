@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!--Giver의 첫 화면에 표시될 ListView에 들어갈 콘텐트 각각의 기본 틀-->
+    <!--건들 필요 없음-->
 
     <LinearLayout
         android:id="@+id/totalView"
@@ -20,42 +23,36 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvFrom"
+                    android:id="@+id/textView_1"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="From"
-                    android:textAlignment="center"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/to"
+                    android:id="@+id/textView_2"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:layout_toEndOf="@+id/textView_1"
                     android:gravity="center"
                     android:text="TO"
-                    android:textAlignment="center"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/tvDest"
+                    android:id="@+id/textView_3"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:layout_toEndOf="@+id/textView_2"
                     android:gravity="center"
                     android:text="Dest"
-                    android:textAlignment="center"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -66,47 +63,14 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvHour"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/textView_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/textView_1"
                     android:layout_alignParentStart="true"
-                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:gravity="center"
-                    android:inputType="time"
-                    android:text="hour"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/connect"
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_toEndOf="@+id/textView_1"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text=":"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/tvMin"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    android:layout_toEndOf="@+id/textView_2"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Min"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-
+                    android:inputType="time" />
             </LinearLayout>
 
         </LinearLayout>
@@ -118,23 +82,37 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:text="See Profile"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/result"
+                <Button
+                    android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="Match Waiting"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
+                    android:layout_below="@+id/button2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="5dp"
+                    android:text="Take Request"
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

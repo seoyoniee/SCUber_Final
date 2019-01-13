@@ -1,55 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--MainActivity에서 Giver 이미지버튼을 통해 들어오면 보여지는 Giver의 Main 창. Taker들의 여러 수요를 ListView로 보여준다.
+        여기서 받고싶은 REQUEST를 [TAKE REQUEST] 버튼을 통해 수락하거나 요청한 Taker의 간단한 프로필을 확인 할 수 있다.-->
+
     <LinearLayout
-        android:id="@+id/ChangeLayout"
+        android:id="@+id/FullLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <TableRow
+        <LinearLayout
+            android:id="@+id/TopLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="0px"
+            android:layout_weight="100"
+            android:orientation="horizontal">
+            <!--android:background="@color/backkk"-->
 
-            <Button
-                android:id="@+id/btn_mypage"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"
-                android:text="@string/my_page"
-                android:textColor="@android:color/background_dark"
-                android:textSize="14sp" />
-        </TableRow>
+                android:layout_weight="70"
+                android:orientation="horizontal">
 
-        <TableRow
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="80" />
+                <!--app:srcCompat="@drawable/weather_sunny"-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="70"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textCapWords"
+                    android:text="Available Choices"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--app:srcCompat="@drawable/waon_logo"-->
+
+            <!--app:srcCompat="@drawable/setting"-->
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/requests"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="0px"
+            android:layout_weight="700" />
 
-            <Button
-                android:id="@+id/btn_requests"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/ButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="100"
+            android:orientation="horizontal">
+
+            <TableRow
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:background="@android:color/darker_gray"
-                android:text="@string/current_requests"
-                android:textColor="@android:color/black" />
-        </TableRow>
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_mypage"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:text="@string/my_page"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="14sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/btn_requests"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/darker_gray"
+                    android:text="@string/current_reservation"
+                    android:textColor="@android:color/black" />
+            </TableRow>
+
+        </LinearLayout>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>

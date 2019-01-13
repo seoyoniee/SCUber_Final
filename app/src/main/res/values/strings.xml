@@ -7,4 +7,5 @@
     <string name="start_hint">출발지</string>
     <string name="my_page">my_page</string>
     <string name="current_requests">current_requests</string>
+    <string name="giver_accept_title">Dont be Late! \n SC Ubers are Waiting For you!</string>
 </resources>
