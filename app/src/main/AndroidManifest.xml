@@ -24,10 +24,9 @@
 
         <activity android:name="com.example.scuber.ChargePoint" />
         <activity android:name="com.example.scuber.MainActivity" />
+        <activity android:name="com.example.scuber.MyPage" />
         <activity android:name="com.example.scuber.giver.MainGiver" />
         <activity android:name="com.example.scuber.taker.MainTaker" />
-        <activity android:name="com.example.scuber.taker.TakerPage" />
-        <activity android:name="com.example.scuber.giver.GiverPage" />
         <activity android:name="com.example.scuber.taker.TakerRequests" />
         <activity android:name="com.example.scuber.giver.GiverRequests" />
 

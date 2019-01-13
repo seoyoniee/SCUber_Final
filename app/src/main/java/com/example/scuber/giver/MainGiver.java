@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.scuber.MyPage;
 import com.example.scuber.R;
-import com.example.scuber.taker.TakerPage;
 
 public class MainGiver extends Activity {
 
@@ -21,7 +21,7 @@ public class MainGiver extends Activity {
         btn_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainGiver.this, TakerPage.class));
+                startActivity(new Intent(MainGiver.this, MyPage.class));
             }
         });
 

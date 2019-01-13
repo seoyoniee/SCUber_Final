@@ -28,17 +28,18 @@
                     android:layout_height="150dp">
 
                     <ImageView
-                        android:id="@+id/imageView"
+                        android:id="@+id/ivProfile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:cropToPadding="false"
                         android:src="@drawable/zuckerberg" />
+
                 </FrameLayout>
 
                 <TextView
                     android:id="@+id/tvName"
-                    android:layout_width="match_parent"
-                    android:layout_height="33dp"
+                    android:layout_width="250dp"
+                    android:layout_height="29dp"
                     android:background="@android:drawable/bottom_bar"
                     android:text="My ID / Name"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
@@ -74,7 +75,7 @@
                     android:background="@drawable/pay_coins" />
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/btn_update"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
