@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.scuber.MyPage;
 import com.example.scuber.R;
 import com.example.scuber.Request_item;
+import com.example.scuber.login.MainLogin;
 import com.example.scuber.login.Retrofit.IMyService;
 import com.example.scuber.login.Retrofit.RetrofitClient;
 
@@ -90,7 +92,7 @@ public class GiverReqAdapter extends BaseAdapter {
         btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Log.e("callID",objectID);
+
                 String newState = "match complete";
                 updateCallState(objectID, newState);
 
@@ -101,18 +103,17 @@ public class GiverReqAdapter extends BaseAdapter {
     }
 
     private void updateCallState(String _id, String state) {
-        Log.e("updateCallState1", _id);
-        Log.e("updateCallState2", state);
         compositeDisposable.add(iMyService.updateCallState(_id, state)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
-                        Log.e("resultUpdateProfile", response);
+
+                            //Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
                     }
                 }));
 
-    }
 
+    }
 }

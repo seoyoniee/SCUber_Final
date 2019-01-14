@@ -107,9 +107,7 @@ public class MainTaker extends Activity {
                 registerCall(userId, from.getText().toString(),
                         to.getText().toString(), time_hour, time_min);
 
-                //Intent intent = new Intent(MainTaker.this, TakerRequests.class);
-               // intent.putExtra("id",userId);
-               // startActivity(intent);
+
             }
         });
 

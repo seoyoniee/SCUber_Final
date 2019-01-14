@@ -89,8 +89,11 @@ public class TakerRequests extends AppCompatActivity {
                                 time_hour = object.getInt("time_hour");
                                 time_min = object.getInt("time_min");
 
-                                Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
-                                reqList.add(item);
+                                Log.e("callState", state);
+                                if(state.equals("match waiting")) {
+                                    Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
+                                    reqList.add(item);
+                                }
                                 cnt++;
                             }
 
