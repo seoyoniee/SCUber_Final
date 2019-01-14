@@ -59,7 +59,7 @@ public class ChargePoint extends Activity {
 
                 tmp = etPoint.getText().toString();
                 chargePoint =  Integer.parseInt(tmp);
-                pointCharge(userId, chargePoint);
+                pointChangePlus(userId, chargePoint);
             }
         });
 
@@ -76,8 +76,8 @@ public class ChargePoint extends Activity {
 
     }
 
-    private void pointCharge(String id, Integer point) {
-        compositeDisposable.add(iMyService.pointCharge(id, point)
+    private void pointChangePlus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangePlus(id, point)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {

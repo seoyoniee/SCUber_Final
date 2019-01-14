@@ -50,10 +50,20 @@ public interface IMyService {
                                        @Field("state") String state,
                                        @Field("giver") String giver);
 
-    @POST("pointCharge")
+    @POST("pointChangePlus")
     @FormUrlEncoded
-    Observable<String> pointCharge(@Field("id") String id,
+    Observable<String> pointChangePlus(@Field("id") String id,
                                        @Field("point") Integer point);
+
+    @POST("pointChangeMinus")
+    @FormUrlEncoded
+    Observable<String> pointChangeMinus(@Field("id") String id,
+                                       @Field("point") Integer point);
+
+    @POST("returnID")
+    @FormUrlEncoded
+    Observable<String> returnID(@Field("_id") String _id);
+
 
     @GET("calls")
     Observable<String> getCalls ();
@@ -62,7 +72,7 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> takerCalls (@Field ("id") String id);
 
-    @GET("giverCalls")
+    @POST("giverCalls")
     @FormUrlEncoded
     Observable<String> giverCalls (@Field("giver") String giver);
 

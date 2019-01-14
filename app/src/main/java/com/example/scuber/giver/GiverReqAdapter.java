@@ -1,7 +1,6 @@
 package com.example.scuber.giver;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.scuber.MyPage;
 import com.example.scuber.R;
 import com.example.scuber.Request_item;
-import com.example.scuber.login.MainLogin;
 import com.example.scuber.login.Retrofit.IMyService;
 import com.example.scuber.login.Retrofit.RetrofitClient;
 
@@ -81,15 +78,6 @@ public class GiverReqAdapter extends BaseAdapter {
         time_min.setText(Integer.toString(reqList.get(position).getTime_min()));
 
 
-        //btn_profile를 클릭시 MyPage 클래스로 이동
-        Button btn_profile = v.findViewById(R.id.btn_profile);
-        btn_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         //btn_accept를 클릭시 해당 call의 state를 바꿔줘야대 -> 그리고 point도 한건당 700포인트 주고받아야대
         Button btn_accept = v.findViewById(R.id.btn_accept);
         btn_accept.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +86,12 @@ public class GiverReqAdapter extends BaseAdapter {
 
                 String newState = "match completed";
                 updateCallState(objectID, newState, userID);
+
+                Integer chargePoint = 700;
+                pointChangePlus(userID, chargePoint); //giver는 700포인트 충전!
+
+                //objectID 찾아서 유저를 넣어줘야대
+                returnID(objectID); //taker는 700포인트 빠져나가!
 
             }
         });
@@ -119,4 +113,48 @@ public class GiverReqAdapter extends BaseAdapter {
 
 
     }
+
+    private void pointChangePlus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangePlus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Log.e("testCharge1", response);
+                    }
+                }));
+
+    }
+
+    private void pointChangeMinus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangeMinus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Log.e("testCharge2", response);
+                    }
+                }));
+
+    }
+
+    private void returnID (String _id) {
+        compositeDisposable.add(iMyService.returnID(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                        Integer chargePoint = 700;
+                        pointChangeMinus(response, chargePoint);
+                    }
+                }));
+
+    }
+
+
+
 }

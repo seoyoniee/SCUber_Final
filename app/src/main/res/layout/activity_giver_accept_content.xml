@@ -172,12 +172,10 @@
                 android:layout_height="50dp"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btn_profile"
+                <TextView
+                    android:id="@+id/tvTaker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="See Profile"
                     android:textSize="12sp"
@@ -193,7 +191,7 @@
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/btn_profile"
+                    android:layout_below="@+id/tvTaker"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="Cancel Request"

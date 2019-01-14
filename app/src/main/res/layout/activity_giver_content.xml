@@ -173,7 +173,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_profile"
+                    android:id="@+id/tvTaker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
@@ -194,7 +194,7 @@
                     android:id="@+id/btn_accept"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/btn_profile"
+                    android:layout_below="@+id/tvTaker"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="Take Request"

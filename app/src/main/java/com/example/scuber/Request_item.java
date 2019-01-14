@@ -11,6 +11,16 @@ public class Request_item {
 
     private String _id;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    private String id;
+
     public String getState() {
         return state;
     }
