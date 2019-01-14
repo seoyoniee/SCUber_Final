@@ -22,7 +22,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="70dp"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
@@ -30,7 +30,7 @@
 
                 <TextView
                     android:id="@+id/tvFrom"
-                    android:layout_width="60dp"
+                    android:layout_width="70dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -60,7 +60,7 @@
 
                 <TextView
                     android:id="@+id/tvDest"
-                    android:layout_width="60dp"
+                    android:layout_width="70dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_gravity="center"

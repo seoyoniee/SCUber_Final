@@ -63,6 +63,7 @@ public class MainTaker extends Activity {
        Button btn_mypage = findViewById(R.id.btn_mypage);
        Button btn_request = findViewById(R.id.btn_request);
        Button btn_requests = findViewById(R.id.btn_requests);
+       Button btn_evaluate = findViewById(R.id.btn_evaluate);
 
 
 
@@ -121,6 +122,15 @@ public class MainTaker extends Activity {
             }
         });
 
+        //btn_evaluate를 클릭시 Evaluate 클래스로 이동
+        btn_evaluate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainTaker.this, Evaluate.class);
+                intent.putExtra("id",userId);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onBackPressed() {

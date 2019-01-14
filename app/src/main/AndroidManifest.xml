@@ -29,6 +29,7 @@
         <activity android:name="com.example.scuber.taker.MainTaker" />
         <activity android:name="com.example.scuber.taker.TakerRequests" />
         <activity android:name="com.example.scuber.giver.GiverRequests" />
+        <activity android:name="com.example.scuber.taker.Evaluate" />
 
         <meta-data
             android:name="preloaded_fonts"

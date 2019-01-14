@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <!--Taker의 Request들의 현황을 보여준다.-->
+    <!--Giver가 자신의 Main창에서 [TAKE REQUEST] 버튼을 눌러 수락하면 수락현황이 바뀐다.-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <!--최상단 이쁘게 하는 바. 우리 로고나 그런거 보여줄 바-->
+
+        <LinearLayout
+            android:id="@+id/TopLayout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+            <!--android:background="@color/backkk"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="Evaluate After Match"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!--app:srcCompat="@drawable/waon_logo"-->
+
+            <!--app:srcCompat="@drawable/setting"-->
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/request"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="700" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
