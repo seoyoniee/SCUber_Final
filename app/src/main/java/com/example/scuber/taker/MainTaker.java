@@ -3,10 +3,14 @@ package com.example.scuber.taker;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -61,10 +65,14 @@ public class MainTaker extends Activity {
        Button btn_requests = findViewById(R.id.btn_requests);
 
 
-        time_hour = mTimePicker.getHour();
-        time_min = mTimePicker.getMinute();
 
-        //btn_taker를 클릭시 MainTaker 클래스로 이동
+
+        Log.e("myPageID", userId);
+
+
+
+
+        //btn_page를 클릭시 MyPage 클래스로 이동
         btn_mypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,12 +87,29 @@ public class MainTaker extends Activity {
             @Override
             public void onClick(View v) {
                 Log.e("registerCall","registerCall!!" );
+
+             //시간을 24시제로 해줘
+                mTimePicker.setIs24HourView(true);
+
+                time_min = mTimePicker.getMinute();
+                time_hour = mTimePicker.getHour();
+
+                if(TextUtils.isEmpty(from.getText().toString())){
+                    Toast.makeText(MainTaker.this,"Departure cannot be null or empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(to.getText().toString())){
+                    Toast.makeText(MainTaker.this,"Destination cannot be null or empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 registerCall(userId, from.getText().toString(),
                         to.getText().toString(), time_hour, time_min);
 
-                Intent intent = new Intent(MainTaker.this, TakerRequests.class);
+                //Intent intent = new Intent(MainTaker.this, TakerRequests.class);
                // intent.putExtra("id",userId);
-                startActivity(intent);
+               // startActivity(intent);
             }
         });
 
@@ -93,7 +118,7 @@ public class MainTaker extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainTaker.this, TakerRequests.class);
-                // intent.putExtra("id",userId);
+                intent.putExtra("id",userId);
                 startActivity(intent);
             }
         });
@@ -117,7 +142,12 @@ public class MainTaker extends Activity {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
-                        // Log.e("test7", response);
+                        //registerCall을 할때 response로 해당 call의 objectID가 들어와
+                        Log.e("registerCallsRes", response);
+                        Intent intent = new Intent(MainTaker.this, TakerRequests.class);
+                        intent.putExtra("id",userId);
+                      //  intent.putExtra("call_id",response);
+                        startActivity(intent);
                         Toast.makeText(MainTaker.this, "Call Registration Success", Toast.LENGTH_SHORT).show();
                     }
                 }));

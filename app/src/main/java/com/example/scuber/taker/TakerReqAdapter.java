@@ -7,15 +7,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.scuber.R;
+import com.example.scuber.Request_item;
 
 import java.util.List;
 
-public class ReqAdapter extends BaseAdapter {
+public class TakerReqAdapter extends BaseAdapter {
 
     private Context context;
     private List<Request_item> reqList;
 
-    public ReqAdapter(Context context, List<Request_item> reqList) {
+    public TakerReqAdapter(Context context, List<Request_item> reqList) {
         this.context = context;
         this.reqList = reqList;
     }
@@ -47,11 +48,14 @@ public class ReqAdapter extends BaseAdapter {
         TextView to = (TextView)v.findViewById(R.id.tvDest);
         TextView time_hour = (TextView)v.findViewById(R.id.tvHour);
         TextView time_min = (TextView)v.findViewById(R.id.tvMin);
+        TextView state = (TextView)v.findViewById(R.id.tvState);
 
         from.setText(reqList.get(position).getFrom());
         to.setText(reqList.get(position).getTo());
+        state.setText(reqList.get(position).getState());
         time_hour.setText(Integer.toString(reqList.get(position).getTime_hour()));
         time_min.setText(Integer.toString(reqList.get(position).getTime_min()));
+
 
         return v;
     }

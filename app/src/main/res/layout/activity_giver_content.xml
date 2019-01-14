@@ -22,55 +22,141 @@
                 android:layout_height="50dp"
                 android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/textView_1"
-                    android:layout_width="100dp"
+                    android:id="@+id/tvFrom"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:gravity="center"
                     android:text="From"
-                    android:textSize="24sp" />
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_2"
+                    android:id="@+id/to"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:layout_toEndOf="@+id/textView_1"
                     android:gravity="center"
                     android:text="TO"
-                    android:textSize="20sp" />
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_3"
-                    android:layout_width="100dp"
+                    android:id="@+id/tvDest"
+                    android:layout_width="60dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:layout_toEndOf="@+id/textView_2"
                     android:gravity="center"
                     android:text="Dest"
-                    android:textSize="24sp" />
+                    android:textAlignment="center"
+                    android:textColor="@color/design_default_color_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-                <TextView
-                    android:id="@+id/textView_4"
+                <LinearLayout
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Time"
+                        android:textAlignment="textEnd"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/textView_1"
-                    android:layout_alignParentStart="true"
-                    android:layout_margin="5dp"
                     android:gravity="center"
-                    android:inputType="time" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvHour"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/textView_1"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:background="@android:drawable/title_bar"
+                        android:gravity="center"
+                        android:inputType="time"
+                        android:text="hour"
+                        android:textAlignment="textEnd"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/connect"
+                        android:layout_width="33dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="false"
+                        android:layout_gravity="center"
+                        android:layout_toEndOf="@+id/textView_1"
+                        android:background="@android:drawable/title_bar"
+                        android:gravity="center"
+                        android:inputType="time"
+                        android:text=":"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvMin"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="20dp"
+                        android:background="@android:drawable/title_bar"
+                        android:gravity="center"
+                        android:inputType="time"
+                        android:text="Min"
+                        android:textAlignment="textEnd"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -86,7 +172,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
@@ -97,15 +183,16 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/b"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_accept"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/button2"
+                    android:layout_below="@+id/btn_profile"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="Take Request"

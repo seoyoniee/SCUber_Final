@@ -16,6 +16,7 @@ import static android.support.constraint.Constraints.TAG;
 public class MainActivity extends Activity {
 
 //ALO
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //인자로 유저의 아이디를 받아와
-       final String userId = getIntent().getStringExtra("id");
+
+        userId = getIntent().getStringExtra("id");
        Log.d("aaa",userId);
 
         //btn_taker를 클릭시 MainTaker 클래스로 이동
@@ -32,18 +34,20 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainTaker.class);
-                //Log.d("putExtra", "putExtra: "+userId);
                 intent.putExtra("id",userId);
                 startActivity(intent);
             }
         });
+
 
         //btn_giver를 클릭시 MainGiver 클래스로 이동
         ImageButton btn_giver = findViewById(R.id.btn_giver);
         btn_giver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainGiver.class));
+                Intent intent = new Intent(MainActivity.this, MainGiver.class);
+                intent.putExtra("id",userId);
+                startActivity(intent);
             }
         });
 

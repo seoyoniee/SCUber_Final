@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,157 +14,251 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="270dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="250dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:orientation="horizontal">
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp">
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/ivProfile"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_margin="10dp"
                         android:cropToPadding="false"
                         android:src="@drawable/zuckerberg" />
 
-                </FrameLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_1"
-                            android:layout_width="100dp"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
-                            android:background="@android:drawable/bottom_bar"
+                            android:layout_gravity="center"
+                            android:background="@android:color/background_light"
+                            android:gravity="center"
                             android:text="Name"
-                            android:textAppearance="@style/TextAppearance.AppCompat" />
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvName"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="TextView" />
+                            android:background="@android:color/background_light"
+                            android:fontFamily="@font/caveat_brush"
+                            android:gravity="center"
+                            android:text="TextView"
+                            android:textSize="24sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tv_2"
-                            android:layout_width="100dp"
+                        <LinearLayout
+                            android:layout_width="150dp"
                             android:layout_height="match_parent"
-                            android:background="@android:drawable/bottom_bar"
-                            android:clickable="true"
-                            android:text="NoShow Penalty"
-                            android:textAppearance="@style/TextAppearance.AppCompat" />
+                            android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tvNoShow"
+                            <TextView
+                                android:id="@+id/tv_2"
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@android:color/background_light"
+                                android:clickable="true"
+                                android:gravity="center"
+                                android:text="NoShow Penalty"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvNoShow"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@android:color/background_light"
+                                android:fontFamily="@font/caveat_brush"
+                                android:gravity="center"
+                                android:text="TextView"
+                                android:textSize="24sp" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:text="TextView" />
+                            android:background="@android:color/background_light">
+
+                            <ImageButton
+                                android:id="@+id/btn_noshow"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/plus"
+                                android:onClick="onShowWindowClick" />
+                        </RelativeLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
                         android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_3"
-                            android:layout_width="100dp"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
-                            android:background="@android:drawable/bottom_bar"
-                            android:text="My Point"
-                            android:textAppearance="@style/TextAppearance.AppCompat" />
+                            android:layout_gravity="center"
+                            android:background="@android:color/background_light"
+                            android:gravity="center"
+                            android:text="My Points"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/tvPoint"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="TextView" />
+                            android:background="@android:color/background_light"
+                            android:fontFamily="@font/caveat_brush"
+                            android:gravity="center"
+                            android:text="TextView"
+                            android:textSize="24sp" />
                     </LinearLayout>
+
+                    <android.support.design.widget.CoordinatorLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp">
+
+                        <ImageButton
+                            android:id="@+id/btn_charge"
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/cash" />
+
+                    </android.support.design.widget.CoordinatorLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-                <ImageButton
-                    android:id="@+id/btn_charge"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/pay_coins" />
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/btn_update"
+                    <ImageButton
+                        android:id="@+id/btn_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/update" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/logout" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"></LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_logout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right|center"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="3dp"
+                        android:background="@drawable/logout" />
+
+                </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingTop="@dimen/appbar_padding_top"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:fontFamily="@font/caveat_brush"
+                android:gravity="center"
+                android:text="Taker History"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </android.support.design.widget.AppBarLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ListView
-                    android:id="@+id/taker_history"
-                    style="@style/activated"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:divider="@android:color/transparent"
-                    android:dividerHeight="0dp"/>
-            </LinearLayout>
-
-            <LinearLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ListView
-                    android:id="@+id/giver_history"
-                    style="@style/activated"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:divider="@android:color/holo_blue_bright"
-                    android:dividerHeight="0dp">
-
-                </ListView>
-            </LinearLayout>
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         </LinearLayout>
     </LinearLayout>

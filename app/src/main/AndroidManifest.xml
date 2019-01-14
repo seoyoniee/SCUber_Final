@@ -28,7 +28,10 @@
         <activity android:name="com.example.scuber.giver.MainGiver" />
         <activity android:name="com.example.scuber.taker.MainTaker" />
         <activity android:name="com.example.scuber.taker.TakerRequests" />
-        <activity android:name="com.example.scuber.giver.GiverRequests" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 

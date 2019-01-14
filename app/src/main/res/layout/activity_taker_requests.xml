@@ -24,11 +24,10 @@
             <!--android:background="@color/backkk"-->
 
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_weight="70"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -36,8 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="8dp"
-                    android:layout_weight="80" />
+                    android:layout_marginLeft="8dp" />
                 <!--app:srcCompat="@drawable/weather_sunny"-->
 
             </LinearLayout>
@@ -45,18 +43,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="70"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/editText"
+                <TextView
+                    android:id="@+id/textview0"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:ems="10"
+                    android:gravity="center"
                     android:inputType="textCapWords"
                     android:text="My Requests"
                     android:textAlignment="center"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </LinearLayout>
 

@@ -8,7 +8,10 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
+import retrofit2.http.QueryName;
 
 public interface IMyService {
     @POST("register")
@@ -36,12 +39,26 @@ public interface IMyService {
     Observable<String> findUser(@Field("id") String id);
 
 
-    @PUT("updateProfile")
+    @POST("updateProfile")
+    @FormUrlEncoded
     Observable<String> updateProfile(@Field("id") String id,
                                      @Field("profile") String profile);
-    
+
+    @POST("updateCallState")
+    @FormUrlEncoded
+    Observable<String> updateCallState(@Field("_id") String _id,
+                                        @Field("state") String state);
+
 
     @GET("calls")
     Observable<String> getCalls ();
+
+    @POST("takerCalls")
+    @FormUrlEncoded
+    Observable<String> takerCalls (@Field ("id") String id);
+
+    @GET("giverCalls")
+    @FormUrlEncoded
+    Observable<String> giverCalls (@Field("giver") String giver);
 
 }
