@@ -69,7 +69,7 @@
             android:id="@+id/ButtonLayout"
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:layout_weight="100"
+            android:layout_weight="80"
             android:orientation="horizontal">
 
             <TableRow

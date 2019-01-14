@@ -29,13 +29,15 @@ public class GiverReqAdapter extends BaseAdapter {
 
     private Context context;
     private List<Request_item> reqList;
+    private String userID;
 
     IMyService iMyService;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    public GiverReqAdapter(Context context, List<Request_item> reqList) {
+    public GiverReqAdapter(Context context, List<Request_item> reqList, String userID) {
         this.context = context;
         this.reqList = reqList;
+        this.userID = userID;
     }
 
     //총 개수를 알려주는 메소드
@@ -63,11 +65,13 @@ public class GiverReqAdapter extends BaseAdapter {
         Retrofit retrofitClient = RetrofitClient.getInstance();
         iMyService = retrofitClient.create(IMyService.class);
 
+
         //view에 요소들을 연결시켜줘
         TextView from = (TextView)v.findViewById(R.id.tvFrom);
         TextView to = (TextView)v.findViewById(R.id.tvDest);
         TextView time_hour = (TextView)v.findViewById(R.id.tvHour);
         TextView time_min = (TextView)v.findViewById(R.id.tvMin);
+
 
         final String objectID = reqList.get(position).get_id();
 
@@ -76,7 +80,6 @@ public class GiverReqAdapter extends BaseAdapter {
         time_hour.setText(Integer.toString(reqList.get(position).getTime_hour()));
         time_min.setText(Integer.toString(reqList.get(position).getTime_min()));
 
-       // final long call_id = reqList.get(position).getId();
 
         //btn_profile를 클릭시 MyPage 클래스로 이동
         Button btn_profile = v.findViewById(R.id.btn_profile);
@@ -87,14 +90,14 @@ public class GiverReqAdapter extends BaseAdapter {
             }
         });
 
-        //btn_accept를 클릭시 해당 call의 state를 바꿔줘야대
+        //btn_accept를 클릭시 해당 call의 state를 바꿔줘야대 -> 그리고 point도 한건당 700포인트 주고받아야대
         Button btn_accept = v.findViewById(R.id.btn_accept);
         btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String newState = "match complete";
-                updateCallState(objectID, newState);
+                String newState = "match completed";
+                updateCallState(objectID, newState, userID);
 
             }
         });
@@ -102,15 +105,15 @@ public class GiverReqAdapter extends BaseAdapter {
         return v;
     }
 
-    private void updateCallState(String _id, String state) {
-        compositeDisposable.add(iMyService.updateCallState(_id, state)
+    private void updateCallState(String _id, String state, String userID) {
+        compositeDisposable.add(iMyService.updateCallState(_id, state, userID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
 
-                            //Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "match completed!", Toast.LENGTH_SHORT).show();
                     }
                 }));
 

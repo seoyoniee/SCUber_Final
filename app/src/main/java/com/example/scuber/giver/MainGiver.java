@@ -55,7 +55,7 @@ public class MainGiver extends Activity {
         reqList = new ArrayList<Request_item>();
 
         //리스트와 어댑터를 연결시켜줘
-        adapter = new GiverReqAdapter(getApplicationContext(), reqList);
+        adapter = new GiverReqAdapter(getApplicationContext(), reqList, userId);
         listView.setAdapter(adapter);
 
 
@@ -107,8 +107,10 @@ public class MainGiver extends Activity {
 
                                 _id = object.getString("_id");
 
-                                Request_item item = new Request_item(from, to, time_hour, time_min,state, _id);
-                                reqList.add(item);
+                                if(state.equals("match waiting")) {
+                                    Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
+                                    reqList.add(item);
+                                }
                                 cnt++;
                             }
 

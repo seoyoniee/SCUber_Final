@@ -13,18 +13,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="250dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="200dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -47,7 +46,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:orientation="horizontal">
 
@@ -111,6 +110,7 @@
                                 android:fontFamily="@font/caveat_brush"
                                 android:gravity="center"
                                 android:text="TextView"
+                                android:textAlignment="textEnd"
                                 android:textSize="24sp" />
 
                         </LinearLayout>
@@ -218,10 +218,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="right|center"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginRight="3dp"
-                        android:background="@drawable/logout" />
+                        android:layout_margin="3dp"
+                        android:background="@drawable/logout"
+                        android:elevation="0dp" />
 
                 </LinearLayout>
 

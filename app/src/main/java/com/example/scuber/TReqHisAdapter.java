@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class TReqHisAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        View v = View.inflate(context, R.layout.activity_history_content, null);
+        View v = View.inflate(context, R.layout.activity_taker_history_content, null);
 
         //view에 요소들을 연결시켜줘
         TextView from = (TextView)v.findViewById(R.id.tvFrom);

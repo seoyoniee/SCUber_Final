@@ -90,7 +90,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tv_noshow_howmany"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -100,7 +100,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/tv_noshow_point"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -139,7 +139,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/tv_late_howmany"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -149,7 +149,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/tv_late_point"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -187,7 +187,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/tv_total_howmany"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -197,7 +197,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/tv_total_point"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

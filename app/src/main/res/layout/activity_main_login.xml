@@ -9,29 +9,30 @@
     tools:context=".login.MainLogin">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-        
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="vertical">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            
+
             <ImageView
-                android:src="@drawable/blurred2"
-                android:scaleType="fitXY"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-            
+                android:layout_height="match_parent"
+                android:background="@drawable/login_image"
+                android:scaleType="fitXY" />
+
             <TextView
                 android:id="@+id/txt_create_account"
-                android:text="+ CREATE ACCOUNT"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                android:layout_margin="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="?android:attr/colorForeground"
+                android:text="+ CREATE ACCOUNT"
+                android:textColor="@android:color/background_light"
+                android:textStyle="bold" />
         </FrameLayout>
     </LinearLayout>
 

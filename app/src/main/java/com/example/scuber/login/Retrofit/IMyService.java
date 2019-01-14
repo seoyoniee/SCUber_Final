@@ -47,8 +47,13 @@ public interface IMyService {
     @POST("updateCallState")
     @FormUrlEncoded
     Observable<String> updateCallState(@Field("_id") String _id,
-                                        @Field("state") String state);
+                                       @Field("state") String state,
+                                       @Field("giver") String giver);
 
+    @POST("pointCharge")
+    @FormUrlEncoded
+    Observable<String> pointCharge(@Field("id") String id,
+                                       @Field("point") Integer point);
 
     @GET("calls")
     Observable<String> getCalls ();

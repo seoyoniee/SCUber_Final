@@ -13,7 +13,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="260dp"
+            android:layout_width="240dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -50,7 +50,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentTop="true"
                     android:layout_gravity="center"
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
                     android:layout_toEndOf="@+id/textView_1"
                     android:gravity="center"
                     android:text="TO"
@@ -95,7 +96,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="Time"
-                        android:textAlignment="textEnd"
+                        android:textAlignment="center"
                         android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -125,7 +126,7 @@
 
                     <TextView
                         android:id="@+id/connect"
-                        android:layout_width="33dp"
+                        android:layout_width="20dp"
                         android:layout_height="match_parent"
                         android:layout_alignParentTop="false"
                         android:layout_gravity="center"
@@ -179,7 +180,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="See Profile"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -196,7 +198,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
                     android:text="Take Request"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>

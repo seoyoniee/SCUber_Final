@@ -38,7 +38,7 @@ public class GReqHisAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        View v = View.inflate(context, R.layout.activity_history_content, null);
+        View v = View.inflate(context, R.layout.activity_taker_history_content, null);
 
         //view에 요소들을 연결시켜줘
         TextView from = (TextView)v.findViewById(R.id.tvFrom);
