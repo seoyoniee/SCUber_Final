@@ -55,7 +55,7 @@ public class GiverHistory extends Fragment {
         iMyService = retrofitClient.create(IMyService.class);
 
 
-        listView = view.findViewById(R.id.request);
+        listView = view.findViewById(R.id.requestGiver);
         reqList = new ArrayList<Request_item>();
         userId = getActivity().getIntent().getStringExtra("id");
 

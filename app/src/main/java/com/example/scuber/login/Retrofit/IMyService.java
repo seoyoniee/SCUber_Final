@@ -60,9 +60,22 @@ public interface IMyService {
     Observable<String> pointChangeMinus(@Field("id") String id,
                                        @Field("point") Integer point);
 
+    @POST("noShowPlus")
+    @FormUrlEncoded
+    Observable<String> noShowPlus(@Field("id") String id);
+
+    @POST("latePlus")
+    @FormUrlEncoded
+    Observable<String> latePlus(@Field("id") String id);
+
     @POST("returnID")
     @FormUrlEncoded
     Observable<String> returnID(@Field("_id") String _id);
+
+    @POST("returnGiverID")
+    @FormUrlEncoded
+    Observable<String> returnGiverID(@Field("_id") String _id);
+
 
 
     @GET("calls")

@@ -1,6 +1,7 @@
 package com.example.scuber.taker;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -98,6 +99,10 @@ public class EvalAdapter extends BaseAdapter {
                 String newState = "NO SHOW";
                 updateCallState(objectID, newState, userID);
 
+                //objectID 찾아서 giverID반환해
+                returnGiverID1(objectID);
+
+
             }
         });
 
@@ -108,6 +113,9 @@ public class EvalAdapter extends BaseAdapter {
 
                 String newState = "LATE";
                 updateCallState(objectID, newState, userID);
+
+                //objectID 찾아서 giverID반환해
+                returnGiverID2(objectID);
 
             }
         });
@@ -130,5 +138,62 @@ public class EvalAdapter extends BaseAdapter {
 
     }
 
+    private void returnGiverID1 (String _id) {
+        compositeDisposable.add(iMyService.returnGiverID(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
 
-}
+                        //response가 giver의 아이디야 -> giver의 id로 정보 찾아서 noShow값 +1해줘야대
+                        noShowPlus(response);
+                    }
+
+                }));
+    }
+
+    private void returnGiverID2 (String _id) {
+        compositeDisposable.add(iMyService.returnGiverID(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                        //response가 giver의 아이디야 -> giver의 id로 정보 찾아서 late값 +1해줘야대
+                        latePlus(response);
+                    }
+
+                }));
+    }
+
+
+    private void latePlus (String id) {
+        compositeDisposable.add(iMyService.latePlus(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                    }
+
+                }));
+    }
+
+    private void noShowPlus(String id) {
+        compositeDisposable.add(iMyService.noShowPlus(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Log.e("testnoShow", response);
+                    }
+                }));
+        }
+
+    }
+
+

@@ -12,7 +12,7 @@
         <!--최상단 이쁘게 하는 바. 우리 로고나 그런거 보여줄 바-->
 
         <ListView
-            android:id="@+id/request"
+            android:id="@+id/requestGiver"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
