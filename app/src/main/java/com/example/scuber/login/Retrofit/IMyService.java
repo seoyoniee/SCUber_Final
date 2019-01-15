@@ -54,6 +54,12 @@ public interface IMyService {
                                        @Field("state") String state,
                                        @Field("giver") String giver);
 
+    @POST("updateCallState2")
+    @FormUrlEncoded
+    Observable<String> updateCallState2(@Field("_id") String _id,
+                                       @Field("state") String state);
+
+
     @POST("pointChangePlus")
     @FormUrlEncoded
     Observable<String> pointChangePlus(@Field("id") String id,
@@ -78,7 +84,11 @@ public interface IMyService {
 
     @POST("returnGiverID")
     @FormUrlEncoded
-    Observable<String> returnGiverID(@Field("_id") String _id);
+    Observable<String> returnGiverID1(@Field("_id") String _id);
+
+    @POST("returnGiverID")
+    @FormUrlEncoded
+    Observable<String> returnGiverID2(@Field("_id") String _id);
 
 
 

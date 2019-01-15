@@ -86,7 +86,7 @@ public class EvalAdapter extends BaseAdapter {
             public void onClick(View view){
 
                 String newState = "SUCCESS";
-                updateCallState(objectID, newState, userID);
+                updateCallState2(objectID, newState);
 
             }
         });
@@ -97,7 +97,7 @@ public class EvalAdapter extends BaseAdapter {
             public void onClick(View view){
 
                 String newState = "NO SHOW";
-                updateCallState(objectID, newState, userID);
+                updateCallState2(objectID, newState);
 
                 //objectID 찾아서 giverID반환해
                 returnGiverID1(objectID);
@@ -112,7 +112,7 @@ public class EvalAdapter extends BaseAdapter {
             public void onClick(View view){
 
                 String newState = "LATE";
-                updateCallState(objectID, newState, userID);
+                updateCallState2(objectID, newState);
 
                 //objectID 찾아서 giverID반환해
                 returnGiverID2(objectID);
@@ -123,8 +123,8 @@ public class EvalAdapter extends BaseAdapter {
         return v;
     }
 
-    private void updateCallState(String _id, String state, String userID) {
-        compositeDisposable.add(iMyService.updateCallState(_id, state, userID)
+    private void updateCallState2(String _id, String state) {
+        compositeDisposable.add(iMyService.updateCallState2(_id, state)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
@@ -139,7 +139,7 @@ public class EvalAdapter extends BaseAdapter {
     }
 
     private void returnGiverID1 (String _id) {
-        compositeDisposable.add(iMyService.returnGiverID(_id)
+        compositeDisposable.add(iMyService.returnGiverID1(_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
@@ -154,7 +154,7 @@ public class EvalAdapter extends BaseAdapter {
     }
 
     private void returnGiverID2 (String _id) {
-        compositeDisposable.add(iMyService.returnGiverID(_id)
+        compositeDisposable.add(iMyService.returnGiverID2(_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {

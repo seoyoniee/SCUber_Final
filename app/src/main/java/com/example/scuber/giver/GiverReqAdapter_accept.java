@@ -86,25 +86,25 @@ public class GiverReqAdapter_accept extends BaseAdapter {
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SeeProfile.class);
-
-                intent.putExtra("id", userID);     //지금 id는 아니야!
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                returnID(objectID);
             }
         });
 
         return v;
     }
 
-        private void returnGiverID (String _id) {
-            compositeDisposable.add(iMyService.returnGiverID(_id)
+        private void returnID (String _id) {
+            compositeDisposable.add(iMyService.returnID(_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String response) throws Exception {
+                        Intent intent = new Intent(context, SeeProfile.class);
 
+                        intent.putExtra("id", response);     //지금 id는 아니야! 마쟈
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
                        //return response;
                     }
 

@@ -110,9 +110,6 @@ public class MyPage extends AppCompatActivity {
         //해당 아이디에 대한 정보를 가져와
         findUser(userId);
 
-        //takerHistory에 이때까지 taker로서의 기록을 보여줘
-        takerCalls(userId);
-
 
 
         //포인트충전 클릭시 ChargePoint 클래스로 이동
@@ -247,50 +244,6 @@ public class MyPage extends AppCompatActivity {
         }
     }
 
-    private void takerCalls(String id) {
-        Log.e("takerHistory", userId);
-        compositeDisposable.add(iMyService.takerCalls(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>() {
-                    @Override
-                    public void accept(String response) throws Exception {
-
-                        Log.e("takerHistory2", response);
-                        //이 response를 json parsing해서 listview로 보여줄거야
-
-                        try {
-                            JSONArray jsonArray = new JSONArray(response);
-                            int cnt = 0;
-
-                            String from, to, state, _id;
-                            Integer time_hour, time_min;
-
-                            while(cnt < jsonArray.length()) {
-                                JSONObject object = jsonArray.getJSONObject(cnt);
-
-                                from = object.getString("from");
-                                to = object.getString("to");
-                                state = object.getString("state");
-                                _id = object.getString("_id");
-
-                                time_hour = object.getInt("time_hour");
-                                time_min = object.getInt("time_min");
-
-                                Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
-                                reqList.add(item);
-                                cnt++;
-                            }
-
-
-
-                        }catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }));
-    }
-
     private void findUser(String id) {
         compositeDisposable.add(iMyService.findUser(id)
                 .subscribeOn(Schedulers.io())
@@ -306,7 +259,6 @@ public class MyPage extends AppCompatActivity {
                         Integer lateP = jsonObject.getInt("late");
                         Integer totalP = noshowP *2 + lateP;
 
-
                         tvName.setText(jsonObject.getString("name"));
                         tvPoint.setText(jsonObject.getString("point"));
                         tvNoShow.setText(Integer.toString(totalP));
@@ -318,7 +270,6 @@ public class MyPage extends AppCompatActivity {
                         ivProfile.setImageBitmap(bmp);
                     }
                 }));
-
     }
 
     private void findUser2(String id) {
@@ -362,4 +313,6 @@ public class MyPage extends AppCompatActivity {
                 }));
 
     }
+
+
 }

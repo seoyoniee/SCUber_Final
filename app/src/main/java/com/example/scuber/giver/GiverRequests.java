@@ -28,7 +28,7 @@ public class GiverRequests extends Activity {
     ListView listView;
     GiverReqAdapter_accept adapter;
     List<Request_item> reqList;
-    String userId;
+    String userId, giverId;
 
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     IMyService iMyService;

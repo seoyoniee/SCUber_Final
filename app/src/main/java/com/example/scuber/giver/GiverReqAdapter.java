@@ -93,7 +93,8 @@ public class GiverReqAdapter extends BaseAdapter {
                 pointChangePlus(userID, chargePoint); //giver는 700포인트 충전!
 
                 //objectID 찾아서 유저를 넣어줘야대
-                returnID(objectID); //taker는 700포인트 빠져나가!
+                returnID1(objectID); //taker는 700포인트 빠져나가!
+
 
             }
         });
@@ -103,11 +104,7 @@ public class GiverReqAdapter extends BaseAdapter {
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SeeProfile.class);
-                intent.putExtra("id", userID);     //지금 id는 아니야!
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                returnID(objectID);
             }
         });
 
@@ -155,7 +152,7 @@ public class GiverReqAdapter extends BaseAdapter {
 
     }
 
-    private void returnID (String _id) {
+    private void returnID1 (String _id) {
         compositeDisposable.add(iMyService.returnID(_id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -168,6 +165,24 @@ public class GiverReqAdapter extends BaseAdapter {
                     }
                 }));
 
+    }
+
+    private void returnID (String _id) {
+        compositeDisposable.add(iMyService.returnID(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Intent intent = new Intent(context, SeeProfile.class);
+
+                        intent.putExtra("id", response);     //지금 id는 아니야! 마쟈
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        context.startActivity(intent);
+                        //return response;
+                    }
+
+                }));
     }
 
 
