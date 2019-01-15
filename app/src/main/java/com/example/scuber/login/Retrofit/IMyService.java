@@ -38,6 +38,10 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> findUser(@Field("id") String id);
 
+    @POST("userInfo")
+    @FormUrlEncoded
+    Observable<String> findUser2(@Field("id") String id);
+
 
     @POST("updateProfile")
     @FormUrlEncoded

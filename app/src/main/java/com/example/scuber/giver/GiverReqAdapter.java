@@ -105,6 +105,7 @@ public class GiverReqAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(context, SeeProfile.class);
                 intent.putExtra("id", userID);     //지금 id는 아니야!
+
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

@@ -104,7 +104,7 @@ public class MainGiver extends Activity {
                             JSONArray jsonArray = new JSONArray(response);
                             int cnt = 0;
 
-                            String from, to, state, _id;
+                            String from, to, state, _id, id;
                             Integer time_hour,time_min;
 
                             while(cnt < jsonArray.length()) {
@@ -118,10 +118,15 @@ public class MainGiver extends Activity {
                                 time_min = object.getInt("time_min");
 
                                 _id = object.getString("_id");
+                                id = object.getString("id");
 
+                                Log.e("plz", id);
+                                Log.e("plz2", userId);
                                 if(state.equals("match waiting")) {
-                                    Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
-                                    reqList.add(item);
+                                    if(!id.equals(userId)){
+                                        Request_item item = new Request_item(from, to, time_hour, time_min, state, _id);
+                                        reqList.add(item);
+                                    }
                                 }
                                 cnt++;
                             }

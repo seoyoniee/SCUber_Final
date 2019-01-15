@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="15dp"
-                android:background="@drawable/driver1"
+                android:background="@drawable/driver3"
                 android:clickable="true"
                 android:cropToPadding="false"
                 android:elevation="0dp"

@@ -37,6 +37,7 @@ import retrofit2.Retrofit;
 public class SeeProfile extends AppCompatActivity {
 
     private TextView tvName;
+    private TextView tvContact;
     private TextView tvPoint;
     private TextView tvNoShow;
     private ImageView ivProfile;
@@ -46,9 +47,7 @@ public class SeeProfile extends AppCompatActivity {
     private ViewPager mViewPager;
 
     ListView lvTaker;
-    // ListView lvGiver;
-    TReqHisAdapter adapTaker;
-    // GReqHisAdapter adapGiver;
+
     List<Request_item> reqList;
 
 
@@ -83,6 +82,7 @@ public class SeeProfile extends AppCompatActivity {
         ivProfile = (ImageView) findViewById(R.id.ivProfile);
         tvName = (TextView) findViewById(R.id.tvName);
         tvNoShow = (TextView) findViewById(R.id.tvNoShow);
+        tvContact = (TextView) findViewById(R.id.tvContact);
         userId = getIntent().getStringExtra("id");
 
         Log.e("findUserID", userId);
@@ -160,6 +160,7 @@ public class SeeProfile extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(response);
                         tvName.setText(jsonObject.getString("name"));
                         tvNoShow.setText(jsonObject.getString("noShow"));
+                        tvContact.setText(jsonObject.getString("phonenum"));
 
                         //프로필 사진을 디코딩해서 보여주는거야
                         byte[] imageBytes = Base64.decode(jsonObject.getString("profile"), Base64.DEFAULT);

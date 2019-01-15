@@ -44,6 +44,7 @@ import retrofit2.Retrofit;
 public class MyPage extends AppCompatActivity {
 
     private TextView tvName;
+    private TextView tvContact;
     private TextView tvPoint;
     private TextView tvNoShow;
     private ImageView ivProfile;
@@ -52,10 +53,14 @@ public class MyPage extends AppCompatActivity {
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
 
+    private TextView popupN;
+    private TextView popupL;
+    private TextView popupNP;
+    private TextView popupLP;
+    private TextView totalP;
+
    ListView lvTaker;
-  // ListView lvGiver;
-   TReqHisAdapter adapTaker;
-  // GReqHisAdapter adapGiver;
+
    List<Request_item> reqList;
 
 
@@ -93,7 +98,10 @@ public class MyPage extends AppCompatActivity {
         tvName = (TextView) findViewById(R.id.tvName);
         tvPoint = (TextView) findViewById(R.id.tvPoint);
         tvNoShow = (TextView) findViewById(R.id.tvNoShow);
+        tvContact = (TextView) findViewById(R.id.tvContact);
         userId = getIntent().getStringExtra("id");
+
+
 
 
 
@@ -155,6 +163,15 @@ public class MyPage extends AppCompatActivity {
                 popup.dismiss();
             }
         });
+
+        popupN = popupContent.findViewById(R.id.tv_noshow_howmany);
+        popupL = popupContent.findViewById(R.id.tv_late_howmany);
+        popupNP = popupContent.findViewById(R.id.tv_noshow_point);
+        popupLP = popupContent.findViewById(R.id.tv_late_point);
+        totalP = popupContent.findViewById(R.id.tv_total_point);
+
+        //userID의 정보를 가져와야대
+        findUser2(userId);
 
         popup.setFocusable(true);
         popup.setOutsideTouchable(true);
@@ -265,7 +282,7 @@ public class MyPage extends AppCompatActivity {
                                 cnt++;
                             }
 
-                            adapTaker.notifyDataSetChanged();
+
 
                         }catch (Exception e) {
                             e.printStackTrace();
@@ -285,9 +302,15 @@ public class MyPage extends AppCompatActivity {
                         //response에 담긴 json을 파싱해서 보여주자!
 
                         JSONObject jsonObject = new JSONObject(response);
+                        Integer noshowP = jsonObject.getInt("noShow");
+                        Integer lateP = jsonObject.getInt("late");
+                        Integer totalP = noshowP *2 + lateP;
+
+
                         tvName.setText(jsonObject.getString("name"));
                         tvPoint.setText(jsonObject.getString("point"));
-                        tvNoShow.setText(jsonObject.getString("noShow"));
+                        tvNoShow.setText(Integer.toString(totalP));
+                        tvContact.setText(jsonObject.getString("phonenum"));
 
                         //프로필 사진을 디코딩해서 보여주는거야
                         byte[] imageBytes = Base64.decode(jsonObject.getString("profile"), Base64.DEFAULT);
@@ -297,6 +320,33 @@ public class MyPage extends AppCompatActivity {
                 }));
 
     }
+
+    private void findUser2(String id) {
+        compositeDisposable.add(iMyService.findUser2(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Log.e("test33", response);
+                        //response에 담긴 json을 파싱해서 보여주자!
+
+                        JSONObject jsonObject = new JSONObject(response);
+
+                        popupN.setText(jsonObject.getString("noShow"));
+                        popupL.setText(jsonObject.getString("late"));
+
+                        popupNP.setText(Integer.toString(jsonObject.getInt("noShow")*2));
+                        popupLP.setText(Integer.toString(jsonObject.getInt("late")));
+                        totalP.setText(Integer.toString(jsonObject.getInt("noShow")*2 + jsonObject.getInt("late")));
+
+
+
+                    }
+                }));
+
+    }
+
 
 
     private void updateProfile(String id, String profile) {

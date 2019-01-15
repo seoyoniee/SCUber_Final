@@ -1,6 +1,7 @@
 package com.example.scuber.giver;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.scuber.R;
 import com.example.scuber.Request_item;
+import com.example.scuber.SeeProfile;
 import com.example.scuber.login.Retrofit.IMyService;
 import com.example.scuber.login.Retrofit.RetrofitClient;
 
@@ -79,9 +81,36 @@ public class GiverReqAdapter_accept extends BaseAdapter {
         time_hour.setText(Integer.toString(reqList.get(position).getTime_hour()));
         time_min.setText(Integer.toString(reqList.get(position).getTime_min()));
 
+        //btn_profile 클릭시 해당 request를 요청한 user의 id를 가져와서 그 id의 프로필을 띄울거야
+        Button btn_profile = v.findViewById(R.id.btn_profile);
+        btn_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, SeeProfile.class);
+
+                intent.putExtra("id", userID);     //지금 id는 아니야!
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
 
         return v;
     }
+
+        private void returnGiverID (String _id) {
+            compositeDisposable.add(iMyService.returnGiverID(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                       //return response;
+                    }
+
+                }));
+    }
+
 
 }
 
