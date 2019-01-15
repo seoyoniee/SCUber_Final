@@ -82,6 +82,10 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> returnID(@Field("_id") String _id);
 
+    @POST("returnID")
+    @FormUrlEncoded
+    Observable<String> returnID2(@Field("_id") String _id);
+
     @POST("returnGiverID")
     @FormUrlEncoded
     Observable<String> returnGiverID1(@Field("_id") String _id);
@@ -90,7 +94,9 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> returnGiverID2(@Field("_id") String _id);
 
-
+    @POST("returnGiverID")
+    @FormUrlEncoded
+    Observable<String> returnGiverID3(@Field("_id") String _id);
 
     @GET("calls")
     Observable<String> getCalls ();

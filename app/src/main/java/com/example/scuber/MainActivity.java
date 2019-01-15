@@ -24,9 +24,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         //인자로 유저의 아이디를 받아와
-
         userId = getIntent().getStringExtra("id");
-       Log.d("aaa",userId);
+        Log.d("aaa",userId);
 
         //btn_taker를 클릭시 MainTaker 클래스로 이동
         ImageButton btn_taker = findViewById(R.id.btn_taker);

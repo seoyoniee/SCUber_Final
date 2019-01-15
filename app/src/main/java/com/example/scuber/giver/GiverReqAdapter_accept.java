@@ -90,6 +90,25 @@ public class GiverReqAdapter_accept extends BaseAdapter {
             }
         });
 
+        //btn_cancel 클릭시 콜 다시 리스트로 올려주는거야
+        Button btn_cancel = v.findViewById(R.id.btn_cancel);
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              //캔슬시 state를 match waiting으로 바꿔
+                String state = "match waiting";
+                updateCallState2(objectID,state);
+
+                Log.e("plzz",userID);
+
+                //point를 다시 주고받기 taker(ID) 올리고 giver 내리고
+                pointChangeMinus(userID, 700);
+                returnID2(objectID);
+
+            }
+        });
+
+
         return v;
     }
 
@@ -109,6 +128,61 @@ public class GiverReqAdapter_accept extends BaseAdapter {
                     }
 
                 }));
+    }
+
+    private void returnID2 (String _id) {
+        compositeDisposable.add(iMyService.returnID2 (_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+                        Intent intent = new Intent(context, SeeProfile.class);
+                        pointChangePlus(response, 700);
+                    }
+
+                }));
+    }
+
+    private void updateCallState2(String _id, String state) {
+        compositeDisposable.add(iMyService.updateCallState2(_id, state)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                        Toast.makeText(context, "match canceled!", Toast.LENGTH_SHORT).show();
+                    }
+                }));
+
+
+    }
+
+    private void pointChangePlus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangePlus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                    }
+                }));
+
+    }
+
+    private void pointChangeMinus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangeMinus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                    }
+                }));
+
     }
 
 

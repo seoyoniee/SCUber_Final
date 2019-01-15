@@ -102,6 +102,10 @@ public class EvalAdapter extends BaseAdapter {
                 //objectID 찾아서 giverID반환해
                 returnGiverID1(objectID);
 
+                //point를 다시 주고받기 taker(ID) 올리고 giver 내리고
+                pointChangePlus(userID, 700);
+                returnGiverID3(objectID);
+
 
             }
         });
@@ -168,6 +172,20 @@ public class EvalAdapter extends BaseAdapter {
                 }));
     }
 
+    private void returnGiverID3 (String _id) {
+        compositeDisposable.add(iMyService.returnGiverID3(_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                        pointChangeMinus(response,700);
+                    }
+
+                }));
+    }
+
 
     private void latePlus (String id) {
         compositeDisposable.add(iMyService.latePlus(id)
@@ -193,6 +211,33 @@ public class EvalAdapter extends BaseAdapter {
                     }
                 }));
         }
+
+
+    private void pointChangePlus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangePlus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                    }
+                }));
+
+    }
+
+    private void pointChangeMinus(String id, Integer point) {
+        compositeDisposable.add(iMyService.pointChangeMinus(id, point)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String response) throws Exception {
+
+                    }
+                }));
+
+    }
 
     }
 
