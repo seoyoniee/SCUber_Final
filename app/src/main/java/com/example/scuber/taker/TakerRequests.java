@@ -24,9 +24,6 @@ import retrofit2.Retrofit;
 
 public class TakerRequests extends AppCompatActivity {
 
-    //String[] FROM = {"N1","E11","E2","N22","W8-1","W10","E9-2","E12"};
-    //String[] DEST = {"E2","S18","N4","E11","E3","N10","N1","N1"};
-
     ListView listView;
     TakerReqAdapter adapter;
     List<Request_item> reqList;

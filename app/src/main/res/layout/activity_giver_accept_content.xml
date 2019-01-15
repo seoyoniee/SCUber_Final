@@ -179,6 +179,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_margin="5dp"
+                    android:onClick="onShowWindowClick"
                     android:text="See Profile"
                     android:textSize="12sp"
                     android:textStyle="bold" />

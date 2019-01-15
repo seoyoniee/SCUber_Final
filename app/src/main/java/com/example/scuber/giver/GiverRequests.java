@@ -26,7 +26,7 @@ import retrofit2.Retrofit;
 public class GiverRequests extends Activity {
 
     ListView listView;
-    TakerReqAdapter adapter;
+    GiverReqAdapter_accept adapter;
     List<Request_item> reqList;
     String userId;
 
@@ -49,7 +49,7 @@ public class GiverRequests extends Activity {
         userId = getIntent().getStringExtra("id");
 
         //리스트와 어댑터를 연결시켜줘
-        adapter = new TakerReqAdapter(getApplicationContext(), reqList);
+        adapter = new GiverReqAdapter_accept(getApplicationContext(), reqList, userId);
         listView.setAdapter(adapter);
 
         Log.e("testabc", userId);

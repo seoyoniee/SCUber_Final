@@ -30,6 +30,7 @@
         <activity android:name="com.example.scuber.taker.TakerRequests" />
         <activity android:name="com.example.scuber.giver.GiverRequests" />
         <activity android:name="com.example.scuber.taker.Evaluate" />
+        <activity android:name="com.example.scuber.SeeProfile" />
 
         <meta-data
             android:name="preloaded_fonts"
