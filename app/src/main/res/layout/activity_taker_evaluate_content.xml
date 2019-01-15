@@ -176,7 +176,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_noshow"
+                android:id="@+id/btn_make_noshow"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:gravity="center"
